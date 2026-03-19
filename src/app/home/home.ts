@@ -13,29 +13,36 @@ import { CommonModule } from '@angular/common';
 
 // Création de la classe du composant Home
 export class Home {
-    // Tableau qui va contenir les produits.
-  products: any[] = [];
 
-  // Récupération du service Store.
+    // Tableau source, on le garde intact
+    private allProducts: any[] = [];
+    //Tableau qui est affiché et qui contient les produits
+    products: any[] = [];
+  
+    // Récupération du service Store.
   constructor(private store: Store) {
 
     // On appelle la fonction "getProducts()" pour récupérer les produits
-    this.products = this.store.getProducts();
+    this.allProducts = this.store.getProducts();
+
+    //On fait une copie pour l'affichage
+    this.products = [...this.allProducts];
   }
   // tri par ordre croissant et décroissant
   sortPriceAsc() {
-    this.products.sort((a, b) => a.price - b.price);
+    this.products = [...this.products].sort((a, b) => a.price - b.price);
   }
   sortPriceDesc() {
-    this.products.sort ((a, b) => b.price - a.price);
+    this.products = [...this.products].sort ((a, b) => b.price - a.price);
   }
 
   searchProduct(event: any) {
-      // Récupèration du texte 
-    const value = event.target.value.toLowerCase();
+    // Récupèration du texte 
+    const input = event.target as HTMLInputElement;
+    const value = input.value.toLocaleLowerCase();
 
-    //Regarder dans les produits
-    this.products = this.store.getProducts().filter(product =>
+    //Regarder dans le taableau source
+    this.products = this.allProducts.filter(product =>
       //Garder ceux qui correspondent
       product.name.toLowerCase().includes(value)
     );
