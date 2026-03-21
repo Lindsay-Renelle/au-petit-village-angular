@@ -4,12 +4,20 @@
     dessinée Astérix et Obélix.
     Découvrez nos créations artisannales.</p>
 
-<div *ngFor="let product of products">
-    <h3>{{ product.name }}</h3>
-    <p>Prix : {{ product.price }} €</p>
-</div>
+    <!-- Champ de recherche -->
+    <input type="text" placeholder="Recherche un produit" (input)="searchProduct($event)">
 
-<button (click)="sortPriceAsc()">Prix croissant</button>
-<button (click)="sortPriceDesc()">Prix décroissant</button>
+    <!--Bouton de tri -->
+     <button (click)="sortPriceAsc()">Prix croissant</button>
+     <button (click)="sortPriceDesc()">Prix décroissant</button>
 
-<input type="text" placeholder="Recherche un produit" (input)="serchProduct ($event)">
+     <!-- Message si aucun résultat -->
+      <p *ngIf="products.length === 0"> Aucun produit trouvé</p>
+
+      <!--Liste des produits-->
+    <div *ngFor="let product of products"> 
+        <h3>{{ product.name }}</h3>
+        <p>Prix : {{ product.price }}</p>
+    </div>
+
+   

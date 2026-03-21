@@ -22,7 +22,7 @@ export class Home {
     // Récupération du service Store.
   constructor(private store: Store) {
 
-    // On appelle la fonction "getProducts()" pour récupérer les produits
+    // On appelle la fonction "getProducts()" pour récupérer les produits depuis le service
     this.allProducts = this.store.getProducts();
 
     //On fait une copie pour l'affichage
@@ -33,9 +33,10 @@ export class Home {
     this.products = [...this.products].sort((a, b) => a.price - b.price);
   }
   sortPriceDesc() {
-    this.products = [...this.products].sort ((a, b) => b.price - a.price);
+    this.products = [...this.products].sort((a, b) => b.price - a.price);
   }
 
+  //Recherche par nom
   searchProduct(event: any) {
     // Récupèration du texte 
     const input = event.target as HTMLInputElement;
