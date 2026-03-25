@@ -21,12 +21,16 @@ export class Home {
   
     // Récupération du service Store.
   constructor(private store: Store) {
+    //Appel du service
+    this.store.getProducts().subscribe(data =>{
 
-    // On appelle la fonction "getProducts()" pour récupérer les produits
-    this.allProducts = this.store.getProducts();
+      //Stocker les données
+      this.allProducts = data;
 
-    //On fait une copie pour l'affichage
-    this.products = [...this.allProducts];
+      //Copier pour affichage
+      this.products = [...this.allProducts];
+
+    });
   }
   // tri par ordre croissant et décroissant
   sortPriceAsc() {

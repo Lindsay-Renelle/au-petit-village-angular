@@ -5,6 +5,9 @@
     Découvrez nos créations artisannales.</p>
 
 <div *ngFor="let product of products">
+    <!--Image du produit-->
+
+    <img [src]="product.imageUrl"alt="figurine">
     <h3>{{ product.name }}</h3>
     <p>Prix : {{ product.price }} €</p>
 </div>
@@ -12,4 +15,4 @@
 <button (click)="sortPriceAsc()">Prix croissant</button>
 <button (click)="sortPriceDesc()">Prix décroissant</button>
 
-<input type="text" placeholder="Recherche un produit" (input)="serchProduct ($event)">
+<input type="text" placeholder="Recherche un produit" (input)="searchProduct ($event)">

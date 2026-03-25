@@ -1,5 +1,6 @@
-// Import Injectable depuis Angular ce qui permet de transformer la classe en service
+// Import "Injectable" depuis Angular ce qui permet de transformer la classe en service
 import { Injectable } from '@angular/core';
+import {HttpClient } from  "@angular/common/http";
 
 //Décorateur qui indique que cette classe est un service
 @Injectable({
@@ -9,17 +10,14 @@ import { Injectable } from '@angular/core';
 
 // Création du service nommé Store
 export class Store {
-  // Tableau contenant les produits de la boutique, Chaque produit a un id, un nom et un prix
-  products = [
-    {id: 1, name:"Chef du village", price: 32},
-    {id: 2, name:"Guerrier à la moustache", price: 15},
-    {id: 3, name:"Porteur de menhirs", price: 15},
-    {id: 4, name:"Vendeur de poisson", price: 10},
 
-  ];
+  //Chemin vers le fichier JSON
+  private url = "products.json";
 
-  // Fonction qui permet de récupérer la liste des produits.
+  constructor(private http: HttpClient){}
+
+  // Récupérer les produits depuis le JSON
   getProducts() {
-    return this.products;
+    return this.http.get<any[]>(this.url);
   }
 }
