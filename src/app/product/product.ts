@@ -1,18 +1,32 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import {Store} from '../store';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product.html',
   styleUrl: './product.css',
 })
+
+
 export class Product {
-  productId: string|null=null;
-  
-  constructor(private route: ActivatedRoute) {
-    this.productId = this.route.snapshot.paramMap.get("Id");
-    console.log("ID du produit:",this.productId);
+
+  product: any;
+
+  constructor(private route: ActivatedRoute, private store: Store) {
+
+  // Récupérer l'id dans l'URL
+  const id = Number(this.route.snapshot.paramMap.get('id'));
+
+  // Récupérer les produits
+  this.store.getProducts().subscribe(data => {
+
+    // Trouver le bon produit
+    this.product = data.find(p => p.id === id);
+
+    });
   }
 }

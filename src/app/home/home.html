@@ -5,11 +5,15 @@
     Découvrez nos créations artisannales.</p>
 
 <div *ngFor="let product of products">
-    <!--Image du produit-->
 
+    <a [routerLink]="['/product', product.id]">Voir le détail</a>
+
+    <!--Image du produit-->
     <img [src]="product.imageUrl"alt="figurine">
     <h3>{{ product.name }}</h3>
     <p>Prix : {{ product.price }} €</p>
+
+   
 </div>
 
 <button (click)="sortPriceAsc()">Prix croissant</button>
