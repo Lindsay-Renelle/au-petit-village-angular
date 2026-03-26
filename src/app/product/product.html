@@ -1,11 +1,12 @@
-<div *ngIf="product">
+<h2>Nos produits</h2>
 
-    <h2>{{ product.name }}</h2>
+<div *ngIf="product as p">
+  <h2>{{ p.name }}</h2>
+  <img [src]="p.imageUrl" alt="figurine">
+  <p>{{ p.description }}</p>
+  <p>Prix : {{ p.price }} €</p>
+</div>
 
-    <img [src]="product.imageUrl" alt="figurine">
-
-    <p>{{ product.description }}</p>
-
-    <p>Prix : {{ product.price }} €</p>
-
+<div *ngIf="!product">
+  <p>Aucun produit trouvé.</p>
 </div>

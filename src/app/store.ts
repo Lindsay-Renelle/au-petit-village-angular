@@ -12,7 +12,7 @@ import {HttpClient } from  "@angular/common/http";
 export class Store {
 
   //Chemin vers le fichier JSON
-  private url = "products.json";
+  private url = "/products.json";
 
   constructor(private http: HttpClient){}
 

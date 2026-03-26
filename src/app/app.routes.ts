@@ -6,7 +6,8 @@ import { Product } from './product/product';
 export const routes: Routes = [
     {
         path: '',
-        component: Home
+        component: Home,
+        pathMatch: `full`
     },
     {
         path: 'about',

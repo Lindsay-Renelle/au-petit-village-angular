@@ -1,31 +1,42 @@
+// Import des éléments Angular
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import {Store} from '../store';
+
+// Import du service
+import { Store } from '../store';
 
 @Component({
   selector: 'app-product',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './product.html',
-  styleUrl: './product.css',
+  styleUrls: ['./product.css'],
 })
-
-
 export class Product {
 
+  // Produit sélectionné
   product: any;
 
   constructor(private route: ActivatedRoute, private store: Store) {
 
-  // Récupérer l'id dans l'URL
-  const id = Number(this.route.snapshot.paramMap.get('id'));
+    // On écoute l'URL (id du produit)
+    this.route.paramMap.subscribe(params => {
 
-  // Récupérer les produits
-  this.store.getProducts().subscribe(data => {
+      // Récupérer l'id
+      const id = Number(params.get('id'));
 
-    // Trouver le bon produit
-    this.product = data.find(p => p.id === id);
+      // Récupérer les produits depuis le service
+      this.store.getProducts().subscribe((data: any[]) => {
+
+        // Trouver le bon produit
+        this.product = data.find((p: any) => p.id == id);
+
+        // Debug (facultatif)
+        console.log('ID:', id);
+        console.log('Produit:', this.product);
+
+      });
 
     });
   }
