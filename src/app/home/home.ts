@@ -1,13 +1,16 @@
 // On importe Component et Service Store.
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Store } from '../store';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from "@angular/router";
+import { SortByPricePipe } from '../sort-by-price-pipe';
+import { SortBySearchPipe } from '../sort-by-search-pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, SortByPricePipe, SortBySearchPipe, FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -21,7 +24,10 @@ export class Home {
     products: any[] = [];
   
     // Récupération du service Store.
-  constructor(private store: Store) {
+  constructor(
+    private store: Store,
+    private cdr: ChangeDetectorRef
+  ) {
     //Appel du service
     this.store.getProducts().subscribe(data =>{
 
@@ -31,31 +37,22 @@ export class Home {
       //Copier pour affichage
       this.products = [...this.allProducts];
 
+      //Forcer l'affichage
+      this.cdr.markForCheck();
+
     });
   }
+
+  // Ordre du tri 
+  order: string = 'asc';
+
   // tri par ordre croissant et décroissant
   sortPriceAsc() {
-    this.products = [...this.products].sort((a, b) => a.price - b.price);
+    this.order = 'asc';
   }
   sortPriceDesc() {
-    this.products = [...this.products].sort ((a, b) => b.price - a.price);
+    this.order = 'desc';
   }
 
-  searchProduct(event: any) {
-    // Récupèration du texte 
-    const input = event.target as HTMLInputElement;
-    const value = input.value.toLocaleLowerCase();
-
-    //Regarder dans le taableau source
-    this.products = this.allProducts.filter(product =>
-      //Garder ceux qui correspondent
-      product.name.toLowerCase().includes(value)
-    );
-  }
+  searchText: string = ``;
 }
-
-
-
-
-
-

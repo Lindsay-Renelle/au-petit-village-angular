@@ -4,7 +4,7 @@
     dessinée Astérix et Obélix.
     Découvrez nos créations artisannales.</p>
 
-<div *ngFor="let product of products">
+<div *ngFor="let product of products | sortBySearch: searchText | sortByPrice : order">
 
     <a [routerLink]="['/product', product.id]">Voir le détail</a>
 
@@ -19,4 +19,4 @@
 <button (click)="sortPriceAsc()">Prix croissant</button>
 <button (click)="sortPriceDesc()">Prix décroissant</button>
 
-<input type="text"placeholder="Recherche un produit" (input)="searchProduct($event)">
+<input type="text"placeholder="Recherche un produit" [(ngModel)]="searchText">

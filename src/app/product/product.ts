@@ -1,5 +1,5 @@
 // Import des éléments Angular
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -18,7 +18,11 @@ export class Product {
   // Produit sélectionné
   product: any;
 
-  constructor(private route: ActivatedRoute, private store: Store) {
+  constructor(
+    private route: ActivatedRoute, 
+    private store: Store,
+    private cdr: ChangeDetectorRef
+  ) {
 
     // On écoute l'URL (id du produit)
     this.route.paramMap.subscribe(params => {
@@ -35,6 +39,9 @@ export class Product {
         // Debug (facultatif)
         console.log('ID:', id);
         console.log('Produit:', this.product);
+        
+        //IMPORTANT : forcer Angular à rafraîchir
+         this.cdr.markForCheck();
 
       });
 
