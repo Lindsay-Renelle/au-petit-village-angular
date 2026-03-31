@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* Polices */
+@font-face {
+    font-family: 'Bubbleboddy';
+    src: url('/fonts/bubbleboddyneue-regular-trial.woff') format('woff'),
+         url('/fonts/bubbleboddyneue-regular-trial.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('/fonts/Comfortaa-Regular.woff') format('woff'),
+         url('/fonts/Comfortaa-Regular.ttf') format('truetype');
+}
+
+/* Couleurs */
+:root {
+    --color-peche: #F9D0A3;
+    --color-jaune: #FDD90B;
+    --color-noir: #151217;
+    --color-rouge: #DA001E;
+}
+
+/* Polices globales */
+h1, h2, h3 {
+    font-family: 'Bubbleboddy', sans-serif;
+}
+
+p, li, a {
+    font-family: 'Comfortaa', sans-serif;
+}

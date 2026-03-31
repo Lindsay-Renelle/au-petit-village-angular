@@ -7,7 +7,7 @@ export const routes: Routes = [
     {
         path: '',
         component: Home,
-        pathMatch: `full`
+        pathMatch: 'full'
     },
     {
         path: 'about',

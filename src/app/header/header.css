@@ -1,0 +1,55 @@
+header {
+  background-color: var(--color-peche);
+  border-bottom: 3px solid var(--color-jaune);
+  padding: 10px 30px;
+}
+
+/* Conteneur principal */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo + titre */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-left img {
+  height: 55px;
+  width: auto;
+  border-radius: 8px;
+}
+
+.header-left h1 {
+  font-family: 'Bubbleboddy';
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--color-noir);
+}
+
+/* Menu */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 8px 18px;
+  background-color: white;
+  border-radius: 20px;
+  border: 2px solid var(--color-jaune);
+}
+
+.nav-links a {
+  font-family: 'Comfortaa';
+  color: var(--color-noir);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: var(--color-rouge);
+}
