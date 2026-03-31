@@ -1,0 +1,71 @@
+/* Titre */
+.about-title {
+    text-align: center;
+    font-family: 'Bubbleboddy';
+    font-size: 2.2rem;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    color: var(--color-noir);
+  }
+  
+  /* Conteneur du texte */
+  .about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding: 20px 30px;
+    background-color: white;
+    border: 2px solid var(--color-jaune);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: 'Comfortaa';
+    line-height: 1.6;
+    color: var(--color-noir);
+  }
+  
+  /* Paragraphes */
+  .about-container p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+  }
+  
+  /* Responsive */
+
+/* Tablettes */
+@media (max-width: 768px) {
+
+  .about-title {
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .about-container {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+  }
+
+  .about-container p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 480px) {
+
+  .about-title {
+    font-size: 1.5rem;
+  }
+
+  .about-container {
+    width: 95%;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .about-container p {
+    font-size: 0.95rem;
+  }
+}

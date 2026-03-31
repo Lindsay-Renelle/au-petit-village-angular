@@ -1,0 +1,93 @@
+/*Bloc principal*/
+   .contact-container {
+    width: 60%;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid var(--color-jaune);
+  }
+  
+  .contact-title {
+    font-family: 'Bubbleboddy';
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-noir);
+  }
+  
+  .contact-intro {
+    font-family: 'Comfortaa';
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--color-noir);
+  }
+  /*Formulaire*/
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .contact-form label {
+    font-family: 'Comfortaa';
+    font-weight: 600;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--color-peche);
+    font-family: 'Comfortaa';
+    font-size: 1rem;
+  }
+  /*Bouton envoi*/
+  .contact-form button {
+    background-color: var(--color-jaune);
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .contact-form button:hover {
+    background-color: var(--color-rouge);
+    color: white;
+  }
+  
+  /*Respnsive Tablette */
+  @media (max-width: 768px) {
+    .contact-container {
+      width: 80%;
+      padding: 20px;
+    }
+  
+    .contact-title {
+      font-size: 1.7rem;
+    }
+  }
+  /*Mobile*/
+  @media (max-width: 480px) {
+    .contact-container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .contact-title {
+      font-size: 1.5rem;
+    }
+  
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 0.95rem;
+    }
+  
+    .contact-form button {
+      font-size: 0.95rem;
+    }
+  }
+  
