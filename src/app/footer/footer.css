@@ -1,0 +1,80 @@
+footer {
+    background-color: var(--color-peche);
+    border-top: 3px solid var(--color-jaune);
+    padding: 20px 40px;
+    font-family: 'Comfortaa';
+    color: var(--color-noir);
+  }
+  
+  /* Conteneur principal */
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  /* Icônes */
+  .socials {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .socials img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s;
+  }
+  
+  .socials img:hover {
+    transform: scale(1.15);
+  }
+  
+  /* Bas du footer */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+  }
+
+  /*Responsive Tablettes*/
+@media (max-width: 768px) {
+
+  footer {
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .social-icons img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 480px) {
+
+  footer {
+    padding: 15px 5px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+  }
+}
+  

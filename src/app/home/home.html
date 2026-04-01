@@ -1,25 +1,37 @@
+<h2>Nos produits</h2>
+
+<!-- Barre de recherche -->
+<div class="top-bar">
+  <input type="text" placeholder="Recherche un produit" [(ngModel)]="searchText">
+</div>
+
 <p>
-    “Au petit village” est une entreprise qui confectionne des figurines fait main inspirées de la bande dessinée Astérix et Obélix.
-    Découvrez nos créations artisannales.
-  </p>
-  
-  <!-- Liste des produits avec tri + recherche -->
-  <div *ngFor="let product of products | sortBySearch: searchText | sortByPrice : order">
-  
-    <a [routerLink]="['/product', product.id]">Voir le détail</a>
-  
-    <!-- Image du produit -->
+  “Au petit village” est une entreprise qui confectionne des figurines fait main inspirées de la bande
+  dessinée Astérix et Obélix. Découvrez nos créations artisanales.
+</p>
+
+<!-- Conteneur des produits -->
+<div class="products-container">
+
+  <!-- Carte produit -->
+  <div class="product-card"
+       *ngFor="let product of products | sortBySearch: searchText | sortByPrice : order">
+
     <img [src]="product.imageUrl" alt="figurine">
-  
+
     <h3>{{ product.name }}</h3>
     <p>Prix : {{ product.price }} €</p>
-  
+
+    <a [routerLink]="['/product', product.id]" class="btn-detail">
+      Voir le détail
+    </a>
+
   </div>
-  
-  <!-- Boutons de tri -->
+
+</div>
+
+<!-- Boutons -->
+<div class="actions">
   <button (click)="sortPriceAsc()">Prix croissant</button>
   <button (click)="sortPriceDesc()">Prix décroissant</button>
-  
-  <!-- Champ de recherche -->
-  <input type="text" placeholder="Recherche un produit" [(ngModel)]="searchText">
-  
+</div>
