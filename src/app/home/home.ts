@@ -1,4 +1,3 @@
-// On importe Component et Service Store.
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Store } from '../store';
 import { CommonModule } from '@angular/common';
@@ -14,45 +13,37 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-
-// Création de la classe du composant Home
 export class Home {
 
-    // Tableau source, on le garde intact
-    private allProducts: any[] = [];
-    //Tableau qui est affiché et qui contient les produits
-    products: any[] = [];
-  
-    // Récupération du service Store.
+  // Tableau source
+  private allProducts: any[] = [];
+
+  // Tableau affiché
+  products: any[] = [];
+
   constructor(
     private store: Store,
     private cdr: ChangeDetectorRef
   ) {
-    //Appel du service
-    this.store.getProducts().subscribe(data =>{
-
-      //Stocker les données
+    // Récupération des produits via le service
+    this.store.getProducts().subscribe(data => {
       this.allProducts = data;
-
-      //Copier pour affichage
       this.products = [...this.allProducts];
-
-      //Forcer l'affichage
       this.cdr.markForCheck();
-
     });
   }
 
-  // Ordre du tri 
+  // Ordre du tri
   order: string = 'asc';
 
-  // tri par ordre croissant et décroissant
   sortPriceAsc() {
     this.order = 'asc';
   }
+
   sortPriceDesc() {
     this.order = 'desc';
   }
 
-  searchText: string = ``;
+  // Texte de recherche
+  searchText: string = '';
 }

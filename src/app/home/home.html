@@ -1,21 +1,25 @@
-
-<p>“Au petit village” est une entreprise qui confectionne des figurines fait main inspirées de la bande
-    dessinée Astérix et Obélix.
-    Découvrez nos créations artisannales.</p>
-
-<div *ngFor="let product of products | sortBySearch: searchText | sortByPrice : order">
-
+<p>
+    “Au petit village” est une entreprise qui confectionne des figurines fait main inspirées de la bande dessinée Astérix et Obélix.
+    Découvrez nos créations artisannales.
+  </p>
+  
+  <!-- Liste des produits avec tri + recherche -->
+  <div *ngFor="let product of products | sortBySearch: searchText | sortByPrice : order">
+  
     <a [routerLink]="['/product', product.id]">Voir le détail</a>
-
-    <!--Image du produit-->
-    <img [src]="product.imageUrl"alt="figurine">
+  
+    <!-- Image du produit -->
+    <img [src]="product.imageUrl" alt="figurine">
+  
     <h3>{{ product.name }}</h3>
     <p>Prix : {{ product.price }} €</p>
-
-   
-</div>
-
-<button (click)="sortPriceAsc()">Prix croissant</button>
-<button (click)="sortPriceDesc()">Prix décroissant</button>
-
-<input type="text"placeholder="Recherche un produit" [(ngModel)]="searchText">
+  
+  </div>
+  
+  <!-- Boutons de tri -->
+  <button (click)="sortPriceAsc()">Prix croissant</button>
+  <button (click)="sortPriceDesc()">Prix décroissant</button>
+  
+  <!-- Champ de recherche -->
+  <input type="text" placeholder="Recherche un produit" [(ngModel)]="searchText">
+  
